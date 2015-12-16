@@ -1,3 +1,55 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactRouter = require('react-router');
+var IndexRoute = ReactRouter.IndexRoute;
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var Link = ReactRouter.Link;
+
+var Home = require('./Home');
+var About = require('./About');
+var Contact = require('./Contact');
+
+var App = React.createClass({
+	getInitialState () {
+		return {
+			route: window.location.hash
+		};
+	},
+	
+	componentDidMount () {
+		window.addEventListener('hashchange', () => {
+			this.setState({
+				route: window.location.hash
+			})
+		})
+	},
+	
+	render () {
+		var name = 'kellie';
+		return (
+			<div>
+			<Link to='/'>Home</Link>
+			<Link to={'/about' + name}>About</Link>
+			<Link to='/contact'>Contact</Link>
+			
+			<div style={{ padding: 40 }}>
+			{this.props.children}
+			</div>
+			</div>
+		)
+	}
+})
+
+ReactDOM.render(
+	<Router>
+		<Route component={App} path='/'>
+  		  <IndexRoute component={Home} />
+   		  <Route component={About} path='about/:name' />
+	      <Route component={Contact} path='contact' />
+		</Route>
+	</Router>
+	, document.getElementById('app'));
 // create an App component for our application
 // render it to the DOM
 // add 3 links with the following hrefs: '#/', '#/about', '#/contact'

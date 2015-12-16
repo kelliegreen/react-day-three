@@ -1,7 +1,6 @@
 {
   "name": "router",
   "version": "1.0.0",
-  "description": "",
   "main": "App.js",
   "devDependencies": {
     "babel-core": "^6.3.17",
@@ -14,5 +13,19 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-router": "^1.0.2"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelliegreen/react-day-three.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kelliegreen/react-day-three/issues"
+  },
+  "homepage": "https://github.com/kelliegreen/react-day-three#readme",
+  "description": ""
 }
